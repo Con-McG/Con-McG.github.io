@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- CSS uses /**/ and Javacript uses // -->
+    <!-- sets width to fit devices and whatnot -->
+    <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Systems: Decimal, Binary, and Hexadecimal</title>
     <style>
+        <!--CSS code to make grayis websaite with redish highlights -->
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #2e2e2e; /* Dark Gray */
+            background-color: #2e2e2e; /* Darkish Gray */
             color: #ffffff; /* White Text */
-            padding-bottom: 100px; /* Add padding for the footer height */
+            padding-bottom: 100px; /* padding for the footer height */
         }
         header {
-            background-color: #800000; /* Maroon */
+            background-color: #800000; /* Maroon (?) */
             color: #ffffff; /* White Text */
             padding: 20px 10px;
             text-align: center;
@@ -62,7 +65,7 @@
         footer a:hover {
             text-decoration: underline;
         }
-        /* Calculator Styling */
+        /* Calculator CSS */
         .calculator {
             margin: 20px auto;
             max-width: 800px;
@@ -99,6 +102,7 @@
 </head>
 <body>
     <header>
+         <!-- simple headings and paragraphs for text of website -->
         <h1>Understanding Number Systems</h1>
         <p>Decimal, Binary, and Hexadecimal</p>
     </header>
@@ -122,42 +126,52 @@
         <h2>Summary</h2>
         <p>The decimal system is intuitive for humans, the binary system powers computers, and the hexadecimal system provides a convenient way to handle binary in a readable form. Together, they form the backbone of number representation in various fields.</p>
     </section>
-    <section class="calculator">
-        <h2>Base Conversion Calculator</h2>
-        <input id="numberInput" type="text" placeholder="Enter a number">
-        <select id="inputBase">
-            <option value="10">Decimal</option>
-            <option value="2">Binary</option>
-            <option value="16">Hexadecimal</option>
-        </select>
-        <button onclick="convert()">Convert</button>
-        <div class="result">
-            <p>Binary: <span id="binaryResult"></span></p>
-            <p>Decimal: <span id="decimalResult"></span></p>
-            <p>Hexadecimal: <span id="hexResult"></span></p>
-        </div>
-    </section>
-    <footer>
-        <p>Connor McGowan</p>
-    </footer>
-    <script>
-        function convert() {
-            const input = document.getElementById("numberInput").value;
-            const base = parseInt(document.getElementById("inputBase").value);
-            
-            try {
-                // Convert input to a decimal number
-                const decimalValue = parseInt(input, base);
-
-                // Display results in all bases
-                document.getElementById("binaryResult").textContent = decimalValue.toString(2);
-                document.getElementById("decimalResult").textContent = decimalValue.toString(10);
-                document.getElementById("hexResult").textContent = decimalValue.toString(16).toUpperCase();
-            } catch (e) {
-                alert("Invalid input! Please enter a valid number for the selected base.");
-            }
+    <!-- Hard Part Calculator JavaScript -->
+<section class="calculator">
+    <!-- Title-->
+    <h2>Base Conversion Calculator</h2>
+    <!-- Input field for the number to be converted -->
+    <input id="numberInput" type="text" placeholder="Enter a number">
+    <!-- Dropdown menu to select the base of the input number -->
+    <select id="inputBase">
+        <option value="10">Decimal</option> <!-- Base 10 (Decimal) -->
+        <option value="2">Binary</option>  <!-- Base 2 (Binary) -->
+        <option value="16">Hexadecimal</option> <!-- Base 16 (Hexadecimal) -->
+    </select>
+    <!-- Button to trigger the conversion process -->
+    <button onclick="convert()">Convert</button>
+    <!-- Section to display the conversion results -->
+    <div class="result">
+        <p>Binary: <span id="binaryResult"></span></p> <!-- Binary result -->
+        <p>Decimal: <span id="decimalResult"></span></p> <!-- Decimal result -->
+        <p>Hexadecimal: <span id="hexResult"></span></p> <!-- Hexadecimal result -->
+    </div>
+</section>
+<!-- Footer with author name -->
+<footer>
+    <p>Connor McGowan</p>
+</footer>
+<!-- Javascript -->
+<script>
+    // Function to convert the input number to different bases
+    function convert() {
+        // Get the value entered by the user
+        const input = document.getElementById("numberInput").value;
+        // Get the selected base from the dropdown menu
+        const base = parseInt(document.getElementById("inputBase").value);
+        try {
+            // Convert the input value to a decimal number based on the selected base
+            const decimalValue = parseInt(input, base);
+            // Update the results section with the converted values in different bases
+            document.getElementById("binaryResult").textContent = decimalValue.toString(2); // Convert to binary
+            document.getElementById("decimalResult").textContent = decimalValue.toString(10); // Keep as decimal
+            document.getElementById("hexResult").textContent = decimalValue.toString(16).toUpperCase(); // Convert to hexadecimal
+        } catch (e) {
+            // Show an alert if the input is invalid
+            alert("Invalid input! WOMP WOMP !");
         }
-    </script>
+    }
+</script>
 </body>
 </html>
 
