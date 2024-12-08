@@ -156,7 +156,7 @@
     // Function to convert the input number to different bases
     function convert() {
         // Get the value entered by the user
-        const input = document.getElementById("numberInput").value;
+         const input = document.getElementById("numberInput").value.trim(); 
         // Get the selected base from the dropdown menu
         const base = parseInt(document.getElementById("inputBase").value);
         try {
